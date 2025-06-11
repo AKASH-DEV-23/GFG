@@ -3,14 +3,14 @@ class Solution {
     void mergeSort(int arr[], int l, int r) {
         // code here
         if(l<r){
-            int mid=(l+r)/2;
+            int mid=l+(r-l)/2;
             mergeSort(arr,l,mid);
             mergeSort(arr,mid+1,r);
             merge(arr,l,mid,r);
         }
     }
     private void merge(int[] arr, int st, int mid, int end){
-        int l=mid-st+1;
+        int l= mid-st+1;
         int r=end-mid;
         int[] left=new int[l];
         int[] right=new int[r];
@@ -23,7 +23,7 @@ class Solution {
         }
         int i=0;
         int j=0;
-         k=st;
+        k=st;
         while(i<l && j<r){
             if(left[i]<=right[j]){
                 arr[k++]=left[i++];
